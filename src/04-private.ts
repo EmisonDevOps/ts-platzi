@@ -1,28 +1,30 @@
 export class Date {
- public day: number;
- public month: number;
- public year: number;
+ private day: number;
+ private month: number;
+ private year: number;
 
- constructor(day: number, month: number, year: number) {
+ public constructor(day: number, month: number, year: number) {
   this.day = day;
   this.month = month;
   this.year = year;
  }
 
- getDay() {
+ public getDay(): number {
   return this.day;
  }
- getMonth() {
+ public getMonth(): number {
   return this.month;
  }
- getYear() {
+ public getYear(): number {
   return this.year;
  }
 
- printFormat(): string {
-  return `${this.day}/${this.month}/${this.year}`;
+ public printFormat(): string {
+  const day = this.addPadding(this.day);
+  const month = this.addPadding(this.month)
+  return `${day}/${month}/${this.year}`;
  }
- add(amount: number, type: 'day' | 'month' | 'year'): Date {
+ public add(amount: number, type: 'day' | 'month' | 'year'): Date {
   let newDay = this.day;
   let newMonth = this.month;
   let newYear = this.year;
@@ -41,12 +43,18 @@ export class Date {
   return newDate;
  }
 
- addDays(days: number): Date {
+ public addDays(days: number): Date {
   const newDate = new Date(this.day + days, this.month, this.year);
   return newDate;
  }
-}
 
+ private addPadding(value: number): string {
+  if (value < 10) {
+   return `0${value}`;
+  }
+  return `${value}`;
+ }
+}
 
 const myDate = new Date(21, 7, 2024);
 
