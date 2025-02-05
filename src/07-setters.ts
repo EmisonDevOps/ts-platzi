@@ -5,12 +5,25 @@ export class MyDate {
   private _year: number = 20
  ) { }
 
+ set day(newDay: number) {
+  this._day = newDay;
+ }
+
+
  get day() {
   return this._day;
  }
 
+ set month(newMonth: number) {
+  this._month = newMonth;
+ }
+
  get month() {
   return this._month;
+ }
+
+ set year(newYear: number) {
+  this._year = newYear;
  }
 
  get year() {
@@ -67,12 +80,5 @@ console.log('El mes es: ', myDate.month);
 console.log('El año es: ', myDate.year);
 console.log('El año es biciesto? ', myDate.isLeapYear);
 
-
-console.log('La fecha es: ', myDate.printFormat());
-console.log('La fecha es: ', myDate.add(5, 'day').printFormat());
-console.log('La fecha es: ', myDate.add(5, 'month').printFormat());
-
-const myDate1 = new MyDate(1, 1, 2020);
-console.log('()', myDate1.printFormat());
-console.log('El año es biciesto? ', myDate1.isLeapYear);
-
+myDate.year = 2025;
+console.log('El año actual es: ', myDate.year);
