@@ -15,6 +15,9 @@ export class MyDate {
  }
 
  set month(newMonth: number) {
+  if (newMonth<1 || newMonth>12) {
+   throw new Error('Month out of range');
+  }
   this._month = newMonth;
  }
 
@@ -22,7 +25,7 @@ export class MyDate {
   return this._month;
  }
 
- set year(newYear: number) {
+ set year(newYear: number) {  
   this._year = newYear;
  }
 
