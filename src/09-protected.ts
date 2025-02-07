@@ -1,10 +1,10 @@
-class Animal {
+export class Animal {
  hacerSonido(): void {
   console.log('Hacer sonido');
  }
 }
 
-class Perro extends Animal {
+export class Perro extends Animal {
  hacerSonido(): void {
   console.log('Waooof!');
  }
