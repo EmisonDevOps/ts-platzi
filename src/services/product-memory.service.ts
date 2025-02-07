@@ -20,12 +20,12 @@ export class ProductMemoryService {
   return this.add(newProduct);
  }
 
- add(newProduct: Product) {
+ private add(newProduct: Product) {
   this.products.push(newProduct);
   return newProduct;
  }
 
- updateProduct(id: Product['id'], changes: UpdateProductDto): Product {
+ update(id: Product['id'], changes: UpdateProductDto): Product {
   const index = this.products.findIndex(item => item.id === id);
   const prevData = this.products[index];
   this.products[index] = {
@@ -36,6 +36,11 @@ export class ProductMemoryService {
  }
 
  find(id: Product['id']) {
-  return this.products.filter(item => { item.id === id });
+  return this.products.find(item => { item.id === id });
+  return this.products.find(item => item.id === id);
+ }
+
+ all() {
+  return this.products;
  }
 }
